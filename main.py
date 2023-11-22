@@ -6,4 +6,5 @@ load_dotenv()
 
 if __name__ == "__main__":
   repo_path = os.getenv("REPO_PATH")
-  start_server(repo_path=repo_path)
+  port = int(os.getenv("PORT"))
+  start_server(repo_path=repo_path, custom_port=port)

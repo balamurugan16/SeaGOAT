@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  application:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - REPO_PATH="/home/bala/courses/astro-frontend-masters/"
+      - CHROMA_HOST="20.219.229.124"
+      - CHROMA_PORT=8000
