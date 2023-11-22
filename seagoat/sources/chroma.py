@@ -1,5 +1,6 @@
 from pathlib import Path
 
+import os
 import chromadb
 from chromadb.config import Settings
 from chromadb.errors import IDAlreadyExistsError
@@ -52,12 +53,15 @@ def initialize(repository: Repository):
     cache = Cache("chroma", Path(repository.path), {})
     config = get_config_values(Path(repository.path))
 
-    chroma_client = chromadb.PersistentClient(
-        path=str(cache.get_cache_folder()),
-        settings=Settings(
-            anonymized_telemetry=False,
-        ),
-    )
+    # chroma_client = chromadb.PersistentClient(
+    #     path=str(cache.get_cache_folder()),
+    #     settings=Settings(
+    #         anonymized_telemetry=False,
+    #     ),
+    # )
+    host = os.getenv("CHROMA_HOST")
+    port = os.getenv("CHROMA_PORT")
+    chroma_client = chromadb.HttpClient(host=host, port=port)
     embedding_function_name = config["server"]["chroma"]["embeddingFunction"]["name"]
     embedding_function_kwargs = config["server"]["chroma"]["embeddingFunction"][
         "arguments"

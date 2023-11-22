@@ -32,6 +32,7 @@ jsonschema = "^4.19.1"
 deepmerge = "^1.1.0"
 stop-words = "^2018.7.23"
 flask = "^3.0.0"
+python-dotenv = "^1.0.0"
 
 
 [virtualenvs]
@@ -45,7 +46,7 @@ pyright = "^1.1.314"
 pytest-watch = "^4.2.0"
 freezegun = "^1.2.2"
 syrupy = "^4.0.4"
-pytest-asyncio = "^0.22.0"
+pytest-asyncio = "^0.21.0"
 ipython = "^8.14.0"
 exceptiongroup = "^1.1.2"
 pytest-mock = "^3.11.1"
